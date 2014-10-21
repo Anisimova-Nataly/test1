@@ -9,16 +9,38 @@
 
 <xs:complexType name="b">
 	<xs:sequence>
-		<xs:element name="title" type="t" maxOccurs="1" minOccurs="0"/>
+		<xs:element name="title" type="t" maxOccurs="1" minOccurs="0" />
 		<xs:element name="author"  maxOccurs="100" minOccurs="0"/>
-		<xs:element name="year" maxOccurs="1" minOccurs="0"/>
-		<xs:element name="price" maxOccurs="1" minOccurs="0"/>
+		<xs:element name="year" type = "y" maxOccurs="1" minOccurs="0"/>
+		<xs:element name="price" type ="p" maxOccurs="1" minOccurs="0" />
 	</xs:sequence>
-	<xs:attribute name="category"/>
-	<xs:attribute name="cover"/>
+	<xs:attribute name="category" use="required"/>
+	<xs:attribute name="cover" type="c">
+		<xs:simpleType name="c">
+			  <xs:restriction base="xs:string">
+			    <xs:enumeration value="paperback"/>
+			    <xs:enumeration value="hardback"/>
+			</xs:restriction>
+		</xs:simpleType>
 </xs:complexType>
 <xs:complexType name="t">
-	<xs:attribute name="lang"/>
+	<xs:attribute name="lang" type="l" use="required"/>
 </xs:complexType>
 
+<xs:simpleType name ="l">
+    <xs:restriction base="xs:string">
+      <xs:length value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+<xs:simpleType name ="y">
+    <xs:restriction base="xs:integer">
+        <xs:minExclusive value ="1900"/>
+ 	<xs:minExclusive value = "2014"/>
+    </xs:restriction>
+  </xs:simpleType>
+<xs:simpleType name ="p">
+    <xs:restriction base="xs:string">
+      <xs:minExclusive value ="0"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
