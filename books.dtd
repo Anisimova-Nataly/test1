@@ -1,0 +1,11 @@
+<!ELEMENT bookstore (book*)>
+<!ELEMENT book (title,author+,year,price)>
+<!ELEMENT title ANY>
+<!ELEMENT author ANY>
+<!ELEMENT year ANY>
+<!ELEMENT price ANY>
+<!ATTLIST book category CDATA #REQUIRED>
+<!ATTLIST title lang "eni" #REQUIRED>
+<!ATTLIST book cover (paperback|hardback) IMPLIED>
+
+
