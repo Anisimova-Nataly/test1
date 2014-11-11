@@ -25,11 +25,13 @@
 </xs:complexType>
 <xs:complexType name="t">
 	<xs:attribute name="lang" type="l" use="required"/>
+	<xs:minLength value="2"/>
+	<xs:maxLength value="30"/>
 </xs:complexType>
 
 <xs:simpleType name ="l">
     <xs:restriction base="xs:string">
-      <xs:length value="2"/>
+    <xs:length value="2"/>
     </xs:restriction>
   </xs:simpleType>
 <xs:simpleType name ="y">
