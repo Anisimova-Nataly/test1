@@ -15,7 +15,7 @@
 		<xs:element name="price" type ="p" maxOccurs="1" minOccurs="0" />
 	</xs:sequence>
 	<xs:attribute name="category" use="required"/>
-	<xs:attribute name="cover" type="c">
+	<xs:attribute name="cover" type="c"/>
 		<xs:simpleType name="c">
 			  <xs:restriction base="xs:string">
 			    <xs:enumeration value="paperback"/>
@@ -24,9 +24,11 @@
 		</xs:simpleType>
 </xs:complexType>
 <xs:complexType name="t">
+<xs:sequence>
 	<xs:attribute name="lang" type="l" use="required"/>
 	<xs:minLength value="2"/>
 	<xs:maxLength value="30"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:simpleType name ="l">
